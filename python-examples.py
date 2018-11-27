@@ -7,15 +7,31 @@
 
 
 
-**  START OF IT ALL **
+## START OF IT ALL
 #/usr/bin/python3
 
 if __name__ == "__main__":
     exit()
 
 
+## SUBPROCESS
+import subprocess
+cmd = "vim"
+arg = "example.txt"
 
-** STRINGS **
+subprocess.call([cmd, arg])
+
+
+## COMMAND LINE ARGUMENTS
+import sys
+try:
+    arg = sys.argv[1]
+    arg = arg.lower()
+except:
+    arg = ''
+
+
+## STRINGS
     - substrings
         exStr = 'abcdef'
         exStr[0:3]      >> 'abc'
