@@ -13,6 +13,17 @@
 if __name__ == "__main__":
     exit()
 
+## DIRECTORY STUFF
+import os
+curdir = os.getcwd()
+newdir = '/newdir'
+try:
+    os.mkdir(newdir)
+except OSError:
+    print("Creation failed for %s" % newdir)
+else:
+    print("Success at life and making %s" % newdir
+
 
 ## SUBPROCESS
 import subprocess
@@ -25,10 +36,32 @@ subprocess.call([cmd, arg])
 ## COMMAND LINE ARGUMENTS
 import sys
 try:
-    arg = sys.argv[1]
-    arg = arg.lower()
+    arg1 = sys.argv[1]
+    arg2 = sys.argv[2]
 except:
-    arg = ''
+    arg1 = ''
+
+## NAMED COMMAND LINE ARGUMENTS
+import argparse, sys
+parser = argparse.ArgumentParser(description='do some things and other')
+parser.add_argument('--thing', help = 'This is what thing does')
+parser.add_argument('-o', '--other', help = 'This is what other is')
+args = parser.parse_args()
+thingWeWant = args.thing
+print(args)
+print(sys)
+
+call: script.py --thing=value1 --other value2
+prints-->   thing='value1', other="value2"
+            ['script.py', '--thing=value1', '--other', 'value2']
+
+call: script.py -h
+prints-->
+usage: script.py [-h] [--thing value1] [--other value2]
+optional arguments:
+    -h, --help show this message and exit
+    -- thing value1  This is what thing does
+    -- other value2  This is what other is
 
 
 ## STRINGS
